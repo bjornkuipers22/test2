@@ -21,29 +21,35 @@
       --shadow:0 10px 25px rgba(0,0,0,.08);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.6}
+    html,body{margin:0;padding:0;height:100%}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg) url('https://png.pngtree.com/png-clipart/20230310/ourmid/pngtree-flying-colorful-balloons-png-image_6640420.png') repeat;
+      background-size:200px; /* volledige ballon-achtergrond */
+      line-height:1.6;
+    }
     a{color:inherit}
     .container{max-width:1200px;margin:0 auto; padding:0 20px}
-    /* Header */
-    .site-header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.8); border-bottom:1px solid #e5e7eb}
-    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
-    .brand .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); display:grid; place-items:center; color:white; font-weight:800}
+
+    /* Sticky topbar */
+    .site-header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.85); border-bottom:1px solid #e5e7eb}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:70px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800}
+    .brand .logo{width:42px; height:42px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#fff}
     .nav .cta{background:var(--accent); border:0; padding:10px 16px; border-radius:999px; font-weight:700; cursor:pointer}
     .nav .cta:hover{filter:brightness(1.05)}
 
-    /* Hero */
-    .hero{position:relative}
-    .hero-media{position:absolute; inset:0; z-index:-1;}
-    .hero-media img{width:100%; height:100%; object-fit:cover; filter:brightness(.55)}
-    .hero-inner{padding:110px 0 90px 0; color:white; text-align:center}
-    .hero h1{font-size:clamp(28px,4vw,48px); line-height:1.1; margin:0 0 12px}
-    .hero p{color:#e5e7eb; max-width:780px; margin:0 auto 22px}
-    .hero .cta-wrap{display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+    /* Elephant hero banner (groot plaatje bovenaan) */
+    .elephant-hero{position:relative}
+    .elephant-hero img{width:100%; height:min(70vh,680px); object-fit:cover; display:block}
+    .elephant-hero .overlay{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.15) 40%, rgba(0,0,0,0));}
+    .elephant-hero .caption{position:absolute; inset:0; display:grid; place-items:center; text-align:center; color:#fff; padding:20px}
+    .elephant-hero h1{font-size:clamp(28px,4vw,48px); margin:0 0 10px}
+    .elephant-hero p{max-width:900px; margin:0 auto 14px; color:#e5e7eb}
     .btn{display:inline-block; padding:14px 22px; border-radius:12px; font-weight:700; text-decoration:none}
     .btn-primary{background:var(--accent); color:#111}
-    .btn-outline{border:2px solid rgba(255,255,255,.6); color:white}
+    .btn-outline{border:2px solid rgba(255,255,255,.7); color:#fff}
 
     /* Features */
     .features{padding:60px 0}
@@ -93,32 +99,43 @@
     footer{background:#0f172a; color:#cbd5e1; padding:26px 0; text-align:center}
     footer a{color:#93c5fd; text-decoration:none}
   </style>
+  <script>
+    // Vervang kapotte afbeeldingen door een plaatsvervanger
+    function imgFallback(img){
+      img.onerror=null; // voorkom loop
+      img.src='https://via.placeholder.com/1200x800?text=Afbeelding+niet+beschikbaar';
+    }
+  </script>
 </head>
 <body>
+  <!-- Sticky navigatie -->
   <header class="site-header">
     <div class="container nav">
       <div class="brand">
-        <div class="logo">WP</div>
+        <div class="logo" aria-hidden="true">WP</div>
         <span>Warmtepompen Nederland</span>
       </div>
       <a class="cta" href="#contact">Offerte aanvragen</a>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-media" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1626045582226-5b9968c2e1d1?q=80&w=1600&auto=format&fit=crop" alt="Warmtepomp buitenunit aan gevel" />
-    </div>
-    <div class="container hero-inner">
-      <h1>Duurzame warmtepompen met snelle installatie</h1>
-      <p>Bespaar direct op uw energierekening met een gecertificeerde installatie. ISDE-subsidie mogelijk en scherpe pakketten voor elk type woning.</p>
-      <div class="cta-wrap">
-        <a class="btn btn-primary" href="#contact">Vraag een gratis offerte aan</a>
-        <a class="btn btn-outline" href="#modellen">Bekijk onze modellen</a>
+  <!-- Groot OLIFANT-plaatje bovenaan -->
+  <section class="elephant-hero" aria-label="Olifant banner">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/African_Bush_Elephant.jpg" alt="Grote olifant in de natuur" onerror="imgFallback(this)" />
+    <div class="overlay" aria-hidden="true"></div>
+    <div class="caption">
+      <div>
+        <h1>Duurzame warmtepompen met snelle installatie</h1>
+        <p>ISDE‑subsidie mogelijk · A‑merken · Gecertificeerde montage</p>
+        <div class="cta-wrap" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-primary" href="#contact">Gratis offerte</a>
+          <a class="btn btn-outline" href="#modellen">Bekijk modellen</a>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- VOORDELEN -->
   <section class="features">
     <div class="container">
       <div class="cards">
@@ -146,12 +163,13 @@
     </div>
   </section>
 
-  <section id="modellen" class="producten">
+  <!-- MODELLEN -->
+  <section id="modellen" class="producten" aria-label="Modellen">
     <div class="container">
       <h2>Onze modellen</h2>
       <div class="grid">
         <article class="prod">
-          <img src="https://images.unsplash.com/photo-1615485737651-6f8770d78b36?q=80&w=1200&auto=format&fit=crop" alt="Lucht/water warmtepomp- buitenunit" />
+          <img src="https://images.unsplash.com/photo-1615485737651-6f8770d78b36?q=80&w=1200&auto=format&fit=crop" alt="Lucht/water warmtepomp- buitenunit" loading="lazy" onerror="imgFallback(this)" />
           <div class="body">
             <span class="badge">Lucht/water</span>
             <h4>Model A – Lucht/water</h4>
@@ -159,7 +177,7 @@
           </div>
         </article>
         <article class="prod">
-          <img src="https://images.unsplash.com/photo-1603808033192-6b9b7b6c9e2b?q=80&w=1200&auto=format&fit=crop" alt="Hybride warmtepomp met cv-ketel" />
+          <img src="https://images.unsplash.com/photo-1581090709507-ec89a3b2a4d3?q=80&w=1200&auto=format&fit=crop" alt="Hybride warmtepomp met cv-ketel" loading="lazy" onerror="imgFallback(this)" />
           <div class="body">
             <span class="badge">Hybride</span>
             <h4>Model B – Hybride</h4>
@@ -167,7 +185,7 @@
           </div>
         </article>
         <article class="prod">
-          <img src="https://images.unsplash.com/photo-1539594784984-6a9b7d2d8f5d?q=80&w=1200&auto=format&fit=crop" alt="All-electric warmtepomp binnenunit" />
+          <img src="https://images.unsplash.com/photo-1539594784984-6a9b7d2d8f5d?q=80&w=1200&auto=format&fit=crop" alt="All-electric warmtepomp binnenunit" loading="lazy" onerror="imgFallback(this)" />
           <div class="body">
             <span class="badge">All‑electric</span>
             <h4>Model C – All‑electric</h4>
@@ -176,11 +194,12 @@
         </article>
       </div>
       <div class="panel" style="margin-top:18px">
-        <strong>Tip:</strong> twijfelt u tussen hybride of all‑electric? Vraag gratis advies op maat – we rekenen de terugverdientijd met u door.
+        <strong>Tip:</strong> Twijfelt u tussen hybride of all‑electric? Vraag gratis advies op maat – we rekenen de terugverdientijd met u door.
       </div>
     </div>
   </section>
 
+  <!-- SUBSIDIE CTA -->
   <div class="container" style="margin-bottom:60px">
     <div class="subsidie">
       <div>
@@ -191,7 +210,8 @@
     </div>
   </div>
 
-  <section class="container split">
+  <!-- OVER ONS + TESTIMONIALS -->
+  <section class="container split" aria-label="Over en reviews">
     <div class="panel">
       <h2>Over ons</h2>
       <p>Wij zijn een ervaren installateur met meer dan 10 jaar expertise in warmtepompen. Van advies en selectie tot installatie en onderhoud: we ontzorgen u volledig.</p>
@@ -205,18 +225,19 @@
       <h2>Wat klanten zeggen</h2>
       <div class="testi">
         <div class="item">
-          <img class="avatar" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=200&auto=format&fit=crop" alt="Klant"/>
+          <img class="avatar" src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=200&auto=format&fit=crop" alt="Klant Anja" loading="lazy" onerror="imgFallback(this)"/>
           <div><strong>Anja (Arnhem)</strong><br><span class="note">“Binnen 4 weken geïnstalleerd en direct merkbaar lagere kosten.”</span></div>
         </div>
         <div class="item">
-          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Klant"/>
+          <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Klant Marco" loading="lazy" onerror="imgFallback(this)"/>
           <div><strong>Marco (Nijmegen)</strong><br><span class="note">“Fijn advies. Hybride gekozen – comfort top, gasverbruik omlaag.”</span></div>
         </div>
       </div>
     </aside>
   </section>
 
-  <section class="container faq">
+  <!-- FAQ -->
+  <section class="container faq" aria-label="Veelgestelde vragen">
     <h2>Veelgestelde vragen</h2>
     <details>
       <summary>Kom ik in aanmerking voor ISDE‑subsidie?</summary>
@@ -224,15 +245,16 @@
     </details>
     <details>
       <summary>Is mijn woning geschikt voor een warmtepomp?</summary>
-      <p>In 90% van de gevallen is een oplossing mogelijk. We kijken naar isolatie, afgiftesysteem en verbruik om de beste configuratie te kiezen.</p>
+      <p>In de meeste gevallen is een oplossing mogelijk. We kijken naar isolatie, afgiftesysteem en verbruik om de beste configuratie te kiezen.</p>
     </details>
     <details>
       <summary>Hoe snel kan er geïnstalleerd worden?</summary>
-      <p>Veelal binnen 2–6 weken na akkoord, afhankelijk van het gekozen model en planning.</p>
+      <p>Vaak binnen 2–6 weken na akkoord, afhankelijk van het gekozen model en planning.</p>
     </details>
   </section>
 
-  <section id="contact" class="container contact">
+  <!-- CONTACT -->
+  <section id="contact" class="container contact" aria-label="Contact">
     <h2>Vraag een offerte aan</h2>
     <form onsubmit="event.preventDefault(); document.getElementById('ok').style.display='block'; this.reset();">
       <input type="text" name="naam" placeholder="Uw naam" required>
@@ -245,6 +267,7 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       &copy; 2025 Warmtepompen Nederland · <a href="#">Privacy</a> · <a href="#">Voorwaarden</a> · 06‑12345678 · info@warmtepompen.nl
