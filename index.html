@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warmtepompen Nederland | Duurzaam en Voordelig</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6; background: #f5f7f6; color: #333; }
+    header { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1581090700227-4c4f50b7b3b2') center/cover no-repeat; color: #fff; padding: 80px 20px; text-align: center; }
+    header h1 { font-size: 3em; margin: 0; animation: fadeInDown 1s ease; }
+    header p { font-size: 1.3em; margin-top: 10px; animation: fadeInUp 1s ease; }
+    header a { display: inline-block; margin-top: 20px; background: #f4c430; color: #000; padding: 14px 30px; text-decoration: none; font-weight: bold; border-radius: 50px; transition: background 0.3s ease; animation: fadeIn 1.5s ease; }
+    header a:hover { background: #ffd95a; }
+
+    section { padding: 60px 20px; max-width: 1200px; margin: auto; }
+    h2 { color: #0b5c38; font-size: 2em; margin-bottom: 20px; position: relative; }
+    h2::after { content: ''; display: block; width: 60px; height: 4px; background: #f4c430; margin-top: 8px; border-radius: 2px; }
+
+    .voordelen ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+    .voordelen li { background: #fff; margin: 0; padding: 15px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 10px; }
+    .voordelen li::before { content: '✔'; color: #0b5c38; font-weight: bold; }
+
+    .producten { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .product { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .product:hover { transform: translateY(-5px); }
+    .product img { width: 100%; display: block; }
+    .product-content { padding: 20px; }
+    .product-content h3 { margin-top: 0; color: #0b5c38; }
+
+    .subsidie { background: #0b5c38; color: #fff; border-radius: 10px; padding: 30px; text-align: center; }
+    .subsidie h2 { color: #fff; }
+
+    form { display: grid; gap: 15px; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    input, textarea, button { padding: 12px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
+    button { background: #0b5c38; color: #fff; border: none; cursor: pointer; transition: background 0.3s ease; }
+    button:hover { background: #09492b; }
+
+    footer { background: #0b5c38; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
+
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Duurzame Warmtepompen</h1>
+    <p>Bespaar op uw energierekening en draag bij aan een groenere toekomst.</p>
+    <a href="#contact">Vraag direct een offerte aan</a>
+  </header>
+
+  <section class="voordelen">
+    <h2>Waarom kiezen voor onze warmtepompen?</h2>
+    <ul>
+      <li>Tot 60% lagere energiekosten</li>
+      <li>ISDE-subsidie beschikbaar</li>
+      <li>Milieuvriendelijk en toekomstbestendig</li>
+      <li>Professionele installatie en onderhoud</li>
+      <li>Snelle levertijden en montage</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Onze modellen</h2>
+    <div class="producten">
+      <div class="product">
+        <img src="https://via.placeholder.com/400x250" alt="Model A">
+        <div class="product-content">
+          <h3>Model A – Lucht/water warmtepomp</h3>
+          <p>Perfect voor bestaande woningen, energiezuinig en stil in gebruik.</p>
+        </div>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/400x250" alt="Model B">
+        <div class="product-content">
+          <h3>Model B – Hybride warmtepomp</h3>
+          <p>Combineert de voordelen van gas en elektrisch voor maximale besparing.</p>
+        </div>
+      </div>
+      <div class="product">
+        <img src="https://via.placeholder.com/400x250" alt="Model C">
+        <div class="product-content">
+          <h3>Model C – All-electric warmtepomp</h3>
+          <p>Volledig gasloos en ideaal voor nieuwbouwwoningen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="subsidie">
+    <h2>Subsidie & Kostenbesparing</h2>
+    <p>Met de ISDE-subsidie kunt u tot wel €2.500 terugkrijgen op de aanschaf van uw warmtepomp. Daarnaast bespaart u flink op de energiekosten en verhoogt u de waarde van uw woning.</p>
+  </section>
+
+  <section>
+    <h2>Over ons</h2>
+    <p>Wij zijn een ervaren installateur van warmtepompsystemen met meer dan 10 jaar ervaring in duurzame energieoplossingen. Ons team begeleidt u van advies tot installatie en nazorg.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Vraag een offerte aan</h2>
+    <form>
+      <input type="text" name="naam" placeholder="Uw naam" required>
+      <input type="email" name="email" placeholder="Uw e-mail" required>
+      <textarea name="bericht" placeholder="Uw bericht" rows="5" required></textarea>
+      <button type="submit">Verstuur</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Warmtepompen Nederland | info@warmtepompen.nl | 06-12345678</p>
+  </footer>
+</body>
+</html>
